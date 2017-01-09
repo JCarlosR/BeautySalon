@@ -9,7 +9,14 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-xs-9">
+                       
+                        <div class="col-xs-12">
+                            <label for="request_date">Fecha: </label>
+                            <input type="text" name="request_date" id="request_date" value="{{ date('d/m/Y') }}" class="form-control" readonly>
+                            <div id="datepicker" data-date="{{ date('d/m/Y') }}"></div>
+                        </div>
+                       
+                        <div class="col-xs-12">
                             <div class="box box-default">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">CITAS</h3>
@@ -48,8 +55,8 @@
                                                             <form action="{{ url('/sistema/administrador/'.$cita->id) }}" method="post">
                                                                 {{ csrf_field() }}
                                                                 {{ method_field('DELETE') }}
-                                                                <button type="submit" class="btn btn-danger">
-                                                                    <i class="fa fa-trash">Eliminar</i>
+                                                                <button type="submit" class="btn btn-success">
+                                                                    <i class="fa fa-trash">Atender</i>
                                                                 </button>
                                                             </form>
                                                         </td>
@@ -68,11 +75,6 @@
 
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-3 ">
-                            <label for="request_date">Fecha: </label>
-                            <input type="text" name="request_date" id="request_date" value="{{ date('d/m/Y') }}" class="form-control" readonly>
-                            <div id="datepicker" data-date="{{ date('d/m/Y') }}"></div>
                         </div>
 
                     </div>

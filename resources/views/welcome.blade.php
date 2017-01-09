@@ -352,9 +352,11 @@
         <div id="toggle-menu" class="icon-menu"></div>
         <nav class="main-nav" id="main-nav">
             <ul class="main-menu">
+
                 <li class="main-menu__item">
                     <a href="#" class="main-menu__link">Inicio</a>
                 </li>
+<!--
                 <li class="main-menu__item">
                     <a href="#" class="main-menu__link">El staff</a>
                 </li>
@@ -367,6 +369,7 @@
                 <li class="main-menu__item">
                     <a href="#" class="main-menu__link">Contacto</a>
                 </li>
+-->
                 <li class="main-menu__item">
                     <a href="{{ url('/home') }}" class="main-menu__link">BeautyNet</a>
                 </li>
@@ -428,6 +431,8 @@
     <br>
     <br>
     <br>
+    
+<!--
     <div class="contact l-container">
         <div class="contact-data">
             <h2 class="subtitle">Visitanos</h2>
@@ -452,6 +457,8 @@
             </form>
         </div>
     </div>
+-->
+    
 </main>
 
 <footer class="main-footer">

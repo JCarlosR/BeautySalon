@@ -18,6 +18,7 @@ class CitaController extends Controller
         $personales= Personal::all();
         return view ('citas.registrar')->with(compact('personales'));
     }
+    
     public function registrarCita (Request $request)
     {
         $cita = new Cita();
@@ -32,7 +33,7 @@ class CitaController extends Controller
         $cita->detalles = $request->get('detalles');
 
         $cita->save();
-        return redirect('/cliente');
+        return redirect('/');
     }
 
 
@@ -41,6 +42,6 @@ class CitaController extends Controller
     public function eliminarCita ($id)
     {
         Cita::findOrFail($id)->delete();
-        return redirect ('sistema/administrador');
+        return redirect ('/home');
     }
 }
