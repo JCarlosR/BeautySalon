@@ -1,14 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://file.myfontastic.com/vhxXiqviJKpS48JMPXdpME/icons.css" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
         $(function(){
             var toggleMenu = $('#toggle-menu');
@@ -17,39 +14,7 @@
                 nav.add($('body')).toggleClass('mostrar');
             });
         });
-
-        // Importar los módulos y plugins que se usarán. Cada uno se impotar con require('modulo')
-        var gulp = require('gulp');
-        var sass = require('gulp-sass');
-        var browserSync = require('browser-sync').create();
-        var autoprefixer = require('gulp-autoprefixer');
-
-        // Crear tarea
-
-        gulp.task('sass', function () {
-            gulp.src('./scss/**/*.scss')
-                    .pipe(sass().on('error', sass.logError))
-                    .pipe(autoprefixer({
-                        browsers: ['last 2 versions'],
-                        cascade: true
-                    }))
-                    .pipe(gulp.dest('./css'))
-                    .pipe(browserSync.stream());
-        });
-
-
-        gulp.task('default', function() {
-
-            browserSync.init({
-                server: "./"
-            });
-
-            gulp.watch("./scss/**/*.scss", ['sass']);
-            gulp.watch("./*.html").on('change', browserSync.reload);
-            gulp.watch("./js/*.js").on('change', browserSync.reload);
-        });
     </script>
-
 </head>
 <style>
     @import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
@@ -356,6 +321,9 @@
                 <li class="main-menu__item">
                     <a href="#" class="main-menu__link">Inicio</a>
                 </li>
+                <li class="main-menu__item">
+                    <a href="{{ url('/login') }}" class="main-menu__link">Ingresar</a>
+                </li>
 <!--
                 <li class="main-menu__item">
                     <a href="#" class="main-menu__link">El staff</a>
@@ -409,7 +377,6 @@
         <div class="staff-member">
             <img src="img/staff-1.jpg" alt="" class="staff-member__img">
             <h3 class="staff-member__name">Carmen</h3>
-
         </div>
         <div class="staff-member">
             <img src="img/staff-1.jpg" alt="" class="staff-member__img">
@@ -427,37 +394,55 @@
             <a href="{{ url('citas/registrar/') }}" class="staff-member__button button third">PEDIR CITA</a>
         </div>
     </div>
+
     <br>
     <br>
-    <br>
-    <br>
-    
-<!--
-    <div class="contact l-container">
-        <div class="contact-data">
-            <h2 class="subtitle">Visitanos</h2>
-            <div class="contact-map">
-                <iframe src="https://mapsengine.google.com/map/u/1/embed?mid=zsZIblwzQkgQ.kpgXK0OogEI0&z=16" width="100%" height="350"></iframe>
-            </div>
-            <div class="contact-address icon-pin">Calle ABC, 123, Int 201 - Mexico DF</div>
-            <div class="contact-phone icon-phone">987-654-321</div>
-        </div>
-        <div class="contact-form-container">
-            <h2 class="subtitle">O escríbenos</h2>
-            <form action="contact.php" method="post" class="contact-form">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name">
-                <label for="email">Su correo</label>
-                <input type="email" id="email" name="email">
-                <label for="phone">Su teléfono</label>
-                <input type="tel" id="phone" name="phone">
-                <label for="message">Su mensaje</label>
-                <textarea name="message" id="message" cols="30" rows="10"></textarea>
-                <input type="submit" value="Enviar" class="button secondary">
-            </form>
-        </div>
+
+    <div class="l-container">
+        <h1>Por favor déjanos tu comentario !</h1>
+        <div id="disqus_thread"></div>
+        <script>
+            /*
+             var disqus_config = function () {
+             this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+             this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+             };
+             */
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = '//trujilloes.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
--->
+
+    <div class="contact l-container">
+        {{--<div class="contact-data">--}}
+            {{--<h2 class="subtitle">Visitanos</h2>--}}
+            {{--<div class="contact-map">--}}
+                {{--<iframe src="https://mapsengine.google.com/map/u/1/embed?mid=zsZIblwzQkgQ.kpgXK0OogEI0&z=16" width="100%" height="350"></iframe>--}}
+            {{--</div>--}}
+            {{--<div class="contact-address icon-pin">Calle ABC, 123, Int 201 - Mexico DF</div>--}}
+            {{--<div class="contact-phone icon-phone">987-654-321</div>--}}
+        {{--</div>--}}
+        {{--<div class="contact-form-container">--}}
+            {{--<h2 class="subtitle">O escríbenos</h2>--}}
+            {{--<form action="contact.php" method="post" class="contact-form">--}}
+                {{--<label for="name">Nombre</label>--}}
+                {{--<input type="text" id="name" name="name">--}}
+                {{--<label for="email">Su correo</label>--}}
+                {{--<input type="email" id="email" name="email">--}}
+                {{--<label for="phone">Su teléfono</label>--}}
+                {{--<input type="tel" id="phone" name="phone">--}}
+                {{--<label for="message">Su mensaje</label>--}}
+                {{--<textarea name="message" id="message" cols="30" rows="10"></textarea>--}}
+                {{--<input type="submit" value="Enviar" class="button secondary">--}}
+            {{--</form>--}}
+        {{--</div>--}}
+    </div>
+
     
 </main>
 
@@ -469,5 +454,3 @@
 
 </body>
 </html>
-
-@endsection('content')
