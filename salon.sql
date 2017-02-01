@@ -1,21 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 08-01-2017 a las 23:23:10
--- Versión del servidor: 5.7.14
--- Versión de PHP: 5.6.25
+DROP DATABASE if exists salon;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
+CREATE DATABASE salon;
+USE salon;
 --
 -- Base de datos: `salon`
 --
@@ -38,13 +24,6 @@ CREATE TABLE `citas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `citas`
---
-
-INSERT INTO `citas` (`id`, `personal_id`, `nombres`, `apellidos`, `celular`, `fecha`, `hora`, `detalles`, `created_at`, `updated_at`) VALUES
-(4, 4, 'Juan', 'Ramos', '111 222 333', '2017-07-10', '09:30:00', 'Probando', '2017-01-08 23:20:59', '2017-01-08 23:20:59');
 
 -- --------------------------------------------------------
 
@@ -115,10 +94,10 @@ CREATE TABLE `personals` (
 --
 
 INSERT INTO `personals` (`id`, `nombres`, `apellidos`, `created_at`, `updated_at`) VALUES
-(1, 'Laura', 'Loyola', '2017-01-08 22:58:34', '2017-01-08 22:58:34'),
-(2, 'Carmen', 'Ramos', '2017-01-08 22:58:34', '2017-01-08 22:58:34'),
-(3, 'Mario', 'Arteaga', '2017-01-08 22:58:34', '2017-01-08 22:58:34'),
-(4, 'Sandra', 'Castillo', '2017-01-08 22:58:34', '2017-01-08 22:58:34');
+(1, 'Laura', 'Loyola', '2017-01-22 14:43:08', '2017-01-22 14:43:08'),
+(2, 'Carmen', 'Ramos', '2017-01-22 14:43:08', '2017-01-22 14:43:08'),
+(3, 'Mario', 'Arteaga', '2017-01-22 14:43:08', '2017-01-22 14:43:08'),
+(4, 'Sandra', 'Castillo', '2017-01-22 14:43:08', '2017-01-22 14:43:08');
 
 -- --------------------------------------------------------
 
@@ -141,7 +120,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'admin@gmail.com', '$2y$10$Yn12CrcF0devKUsDAjgZXuzTsFHeM3KcyeCEFmN73lP/ii0so5AHq', 'qBj4krAI82VJqBrUYv4oVTvuUZgluGgoif3hPXqfdhadtXRiv7Lb52QeNicW', '2017-01-08 22:58:34', '2017-01-08 23:22:58');
+(1, 'Administrador', 'admin@gmail.com', '$2y$10$EzBHujeYxS/fs7Xo9ig.nuU7K.9jtfN7hSgqNJLX9Vo2f7s20kmN2', 'ANvNJWuMsj7hRp6RCaGpkZ1hxH8HoyW7iYeLskvuo0ubUtDrT6UAq26DMkVk', '2017-01-22 14:43:08', '2017-01-22 14:44:51');
 
 --
 -- Índices para tablas volcadas
@@ -194,7 +173,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
@@ -215,6 +194,3 @@ ALTER TABLE `personals`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

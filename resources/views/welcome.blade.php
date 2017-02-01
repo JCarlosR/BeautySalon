@@ -338,6 +338,13 @@
                     <a href="#" class="main-menu__link">Contacto</a>
                 </li>
 -->
+                <li>
+                    <div id="google_translate_element"></div><script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
+                        }
+                    </script>
+                </li>
                 <li class="main-menu__item">
                     <a href="{{ url('/home') }}" class="main-menu__link">BeautyNet</a>
                 </li>
@@ -452,5 +459,6 @@
     <a href="http://youtube.com" class="social-icon icon-youtube"></a>
 </footer>
 
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
